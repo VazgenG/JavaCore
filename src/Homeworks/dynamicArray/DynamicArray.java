@@ -10,8 +10,10 @@ public class DynamicArray {
 
     //ստուգել եթե մասիվի մեջ տեղ չկա, կանչել -> extend() և ավելացնենք
     public void add(int value) {
-        if (value == array.length) {
-        } else extend();
+        if (array.length == size) {
+            extend();
+        }
+        array[size++] = value;
     }
 
     //1․ստեղծել հին մասիվից 10 էլեմենտ ավելի մեծ մասիվ
@@ -21,10 +23,9 @@ public class DynamicArray {
     private void extend() {
         int[] arrayNew = new int[array.length + 10];
         for (int i = 0; i < array.length; i++) {
-                arrayNew[i] = array[i];
-                size++;
-
+            arrayNew[i] = array[i];
         }
+        array = arrayNew;
     }
 
 
@@ -41,9 +42,11 @@ public class DynamicArray {
 
 
     //տպել մասիվի ավելացված էլեմենտները
-    public void print(int[] arrayNew) {
-        for (int size :arrayNew);
-       System.out.println(size);
+    public void print() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(array[i] + " ");
+        }
+
     }
 
 }
