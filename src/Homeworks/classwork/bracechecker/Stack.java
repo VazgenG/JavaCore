@@ -1,7 +1,7 @@
 package Homeworks.classwork.bracechecker;
 
 public class Stack {
-    private int[] array = new int[200];
+    private int[] array = new int[100];
     private int size;
 
     public Stack() {

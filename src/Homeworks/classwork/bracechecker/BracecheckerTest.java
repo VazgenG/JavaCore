@@ -6,5 +6,6 @@ public class BracecheckerTest {
         BraceChecker braceChecker = new BraceChecker();
         braceChecker.check(text);
         System.err.println("Error:opened [ but closed } at 20");
+
     }
 }

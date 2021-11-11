@@ -10,11 +10,11 @@ public class BraceChecker {
     //որ չկարողանանք BraceChecker-ի օբյեկտը սարքենք առանց text-տալու կոնստրուկտորի միջոցով․
 
     public BraceChecker() {
-       String  text  = new String();
+        String text = new String();
     }
 
     //սա հիմնական մեթոդն է, որի մեջ գրելու ենք ամբողջ լոգիկան․ աշխատելու ենք stack-ի հետ, թե վերևի տեղտ-ի
-    public boolean check(String text) {
+    public void check(String text) {
         Stack stack = new Stack();
 
         for (int i = 0; i < text.length(); i++) {
@@ -27,25 +27,25 @@ public class BraceChecker {
             char check;
             switch (c) {
                 case '}':
-                check = stack.pop();
-                if (check == '(' || check == '[')
-                    return false;
-                break;
+                    check = stack.pop();
+                    if (check == '(' || check == '[')
+                        //   System.out.println("opened {  and closed }");
+                        break;
 
                 case ')':
-                check = stack.pop();
-                if (check == '}' || check == ']')
-                    return false;
-                break;
+                    check = stack.pop();
+                    if (check == '}' || check == ']')
+                        //  System.out.println("opened (  and closed )");
+                        break;
 
                 case ']':
                     check = stack.pop();
                     if (check == '}' || check == ')')
-                        return false;
-                    break;
-
+                        //      System.out.println("opened [  and closed ]");
+                        break;
+                default:
+                     System.err.println();
             }
         }
-        return true;
     }
 }
