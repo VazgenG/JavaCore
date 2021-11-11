@@ -1,0 +1,27 @@
+package Homeworks.classwork.bracechecker;
+
+public class Stack {
+    private int[] array = new int[200];
+    private int size;
+
+    public Stack() {
+        size = -1;
+    }
+
+    public void push(int value) {
+        if (size == array.length) {
+            System.out.println("stack-ը վեջացավ");
+        } else {
+            array[++size] = value;
+        }
+    }
+
+    public char pop() {
+        if (size < 0) {
+            System.out.println("stack-ը դատարկ է");
+            return 0;
+        } else {
+            return (char) array[size--];
+        }
+    }
+}
