@@ -23,7 +23,7 @@ public class BraceChecker {
                 stack.push(c);
                 continue;
             }
-          //  if (stack.isEmpty())
+
             char check;
             switch (c) {
                 case '}':
