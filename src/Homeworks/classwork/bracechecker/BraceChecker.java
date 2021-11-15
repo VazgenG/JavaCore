@@ -10,42 +10,63 @@ public class BraceChecker {
     //որ չկարողանանք BraceChecker-ի օբյեկտը սարքենք առանց text-տալու կոնստրուկտորի միջոցով․
 
     public BraceChecker() {
-        String text = new String();
+        this.text = text;
     }
 
     //սա հիմնական մեթոդն է, որի մեջ գրելու ենք ամբողջ լոգիկան․ աշխատելու ենք stack-ի հետ, թե վերևի տեղտ-ի
     public void check(String text) {
         Stack stack = new Stack();
-
+        boolean isValid = true;
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
-            if (c == '{' || c == '(' || c == '[') {
-                stack.push(c);
-                continue;
-            }
-
-            char check;
+            int pop;
             switch (c) {
-                case '}':
-                    check = stack.pop();
-                    if (check == '(' || check == '[')
-                        //   System.out.println("opened {  and closed }");
-                        break;
-
+                case '(':
+                case '{':
+                case '[':
+                    stack.push(c);
+                    break;
                 case ')':
-                    check = stack.pop();
-                    if (check == '}' || check == ']')
-                        //  System.out.println("opened (  and closed )");
-                        break;
+                    pop = stack.pop();
+                    if (pop == 0) {
+                        isValid = false;
+                        System.err.println(" Error: Closed " + c +
+                                " but opend nothing at " + i);
+                    } else if (pop != '(') {
+                        isValid = false;
+                        System.err.println(" Error: Closed " + c +
+                                " but opened " + (char) pop + " at " + i);
+                    }
+                    break;
 
+                case '}':
+                    pop = stack.pop();
+                    if (pop == 0) {
+                        isValid = false;
+                        System.err.println(" Error: Closed " + c +
+                                " but opend nothing at " + i);
+                    } else if (pop != '{') {
+                        isValid = false;
+                        System.err.println(" Error: Cloosed " + c +
+                                " but oopened " + (char) pop + " at " + i);
+                    }
+                    break;
                 case ']':
-                    check = stack.pop();
-                    if (check == '}' || check == ')')
-                        //      System.out.println("opened [  and closed ]");
-                        break;
-                default:
-                     System.err.println();
+                    pop = stack.pop();
+                    if (pop == 0) {
+                        isValid = false;
+                        System.err.println(" Error: Closed " + c +
+                                " but opend nothing at " + i);
+                    } else if (pop != '[') {
+                        isValid = false;
+                        System.err.println(" Error: Cloosed " + c +
+                                " but oopened " + (char) pop + " at " + i);
+                    }
+                    break;
             }
+        }
+        if (isValid = true) {
+            System.out.println(" Everything is OK ");
         }
     }
 }
