@@ -1,55 +1,43 @@
 package Homeworks.autor;
 
-import static java.lang.Integer.parseInt;
-
-
 public class AuthorStorage {
-    private int[] Author = new int[getByIndex()];
-
-    private int getByIndex() {
-        return 0;
-    }
-
+    // սա մեր հիմնական մասիվն է, որտեղ պահելու ենք ավելացվող էլեմենտները
+    private Authorclass[] array;
+    //սա մեր մասիվի մեջ ավելացված էլեմենտների քանակն է
     private int size = 0;
 
-    public void add(Author author) {
-        if (Author.length == size) {
+    //ստուգել եթե մասիվի մեջ տեղ չկա, կանչել -> extend() և ավելացնենք
+     void add(Authorclass author) {
+        if (array.length == size) {
             extend();
         }
-        int value;
-        value = parseInt(null);
-        Author[size++] = value;
+        array[size++] = author;
     }
-
 
     private void extend() {
-        int[] arrayNew = new int[Author.length + 10];
-        for (int i = 0; i < Author.length; i++) {
-            arrayNew[i] = parseInt(String.valueOf(Author[i]));
+        Authorclass[] arrayNew = new Authorclass[array.length + 10];
+        for (int i = 0; i < array.length; i++) {
+            arrayNew[i] = array[i];
         }
-        Author = arrayNew;
+        array = arrayNew;
     }
 
 
+    // եթե տրված ինդեքսը մեր ունեցած սահմաններում է, վերադարձնել
+    //մասիվի index-երորդ էլեմենտը։ Հակառակ դեպքում վերադարձնել -1։
     public int getByIndex(int index) {
-        if (Author[index] <= Author.length) {
+        if (index < 0 || index > array.length+10) {
             return index;
-        } else {
-            return -1;
         }
+        return index;
     }
 
-    public void print() {
-        for (int i = 0; i < size; i++) {
-            System.out.println(Author[i] + " ");
-        }
-
-    }
 
     public void println() {
-        System.out.println();
+        for (int i = 0; i < size; i++) {
+            System.out.println(array[i] + " ");
+        }
+
     }
 
-    private class Author {
-    }
 }

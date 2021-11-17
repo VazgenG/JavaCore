@@ -2,16 +2,6 @@ package Homeworks.autor;
 
 public class Authorclass {
 
-    /*Սարքում եք նոր փեքիջ author անունով.
-Սարքում եք Author class որը ունենալու է հետևյալ private գլոբալ փոփոխականները՝
-String name;
-String surname;
-String email;
-int age;
-String gender;
-Ունենալու եք երկու կոնստրուկտոր, մեկը դեֆոլտ, ոչ մի բան չընդունող, մյուսը բոլորը ընդունող.
-Ունենալու եք բոլորի գետ սետ մեթոդները։
-generate-ով սարքեք նաև toString մեթոդը։*/
 
     String name;
     String surname;
@@ -79,9 +69,6 @@ generate-ով սարքեք նաև toString մեթոդը։*/
         this.email = email;
         this.age = age;
         this.gender = gender;
-
-
-
 
     }
 }
