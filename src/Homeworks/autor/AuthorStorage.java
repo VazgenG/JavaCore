@@ -2,12 +2,17 @@ package Homeworks.autor;
 
 public class AuthorStorage {
     // սա մեր հիմնական մասիվն է, որտեղ պահելու ենք ավելացվող էլեմենտները
-    private Authorclass[] array;
+    private Author[] array = new Author[add()];
+
+    private int add() {
+        return 0;
+    }
+
     //սա մեր մասիվի մեջ ավելացված էլեմենտների քանակն է
     private int size = 0;
 
     //ստուգել եթե մասիվի մեջ տեղ չկա, կանչել -> extend() և ավելացնենք
-     void add(Authorclass author) {
+    public void add(Author author) {
         if (array.length == size) {
             extend();
         }
@@ -15,7 +20,7 @@ public class AuthorStorage {
     }
 
     private void extend() {
-        Authorclass[] arrayNew = new Authorclass[array.length + 10];
+        Author[] arrayNew = new Author[array.length + 10];
         for (int i = 0; i < array.length; i++) {
             arrayNew[i] = array[i];
         }

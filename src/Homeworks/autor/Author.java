@@ -1,15 +1,15 @@
 package Homeworks.autor;
 
-public class Authorclass {
+public class Author {
 
 
-    String name;
-    String surname;
-    String email;
-    int age;
-    String gender;
+    private String name;
+    private String surname;
+    private String email;
+    private int age;
+    private String gender;
 
-    public Authorclass() {
+    public Author() {
     }
 
     @Override
@@ -63,7 +63,7 @@ public class Authorclass {
         this.gender = gender;
     }
 
-    public Authorclass(String name, String surname, String email, int age, String gender) {
+    public Author(String name, String surname, String email, int age, String gender) {
         this.name = name;
         this.surname = surname;
         this.email = email;
