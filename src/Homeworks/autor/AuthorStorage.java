@@ -1,48 +1,57 @@
 package Homeworks.autor;
 
 public class AuthorStorage {
-    // սա մեր հիմնական մասիվն է, որտեղ պահելու ենք ավելացվող էլեմենտները
-    private Author[] array = new Author[add()];
 
-    private int add() {
-        return 0;
-    }
-
-    //սա մեր մասիվի մեջ ավելացված էլեմենտների քանակն է
+    private Author[] authors = new Author[10];
     private int size = 0;
 
-    //ստուգել եթե մասիվի մեջ տեղ չկա, կանչել -> extend() և ավելացնենք
+
     public void add(Author author) {
-        if (array.length == size) {
+        if (authors.length == size) {
             extend();
         }
-        array[size++] = author;
+        authors[size++] = author;
     }
 
     private void extend() {
-        Author[] arrayNew = new Author[array.length + 10];
-        for (int i = 0; i < array.length; i++) {
-            arrayNew[i] = array[i];
+        Author[] arrayNew = new Author[authors.length + 10];
+        for (int i = 0; i < size; i++) {
+            arrayNew[i] = authors[i];
         }
-        array = arrayNew;
+        authors = arrayNew;
     }
 
-
-    // եթե տրված ինդեքսը մեր ունեցած սահմաններում է, վերադարձնել
-    //մասիվի index-երորդ էլեմենտը։ Հակառակ դեպքում վերադարձնել -1։
-    public int getByIndex(int index) {
-        if (index < 0 || index > array.length+10) {
+  /*  public int getByIndex(int index) {
+        if (index < 0 || index > authors.length+10) {
             return index;
         }
         return index;
-    }
+    } */
 
-
-    public void println() {
+    public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(array[i] + " ");
+            System.out.println(authors[i] + " ");
         }
 
     }
 
+    public void searchAuthor(String keyword) {
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getName().contains(keyword) ||
+                    authors[i].getSurname().contains(keyword)) {
+                System.out.println(authors[i]);
+            }
+        }
+    }
+
+    public void searchAuthorByAge(int minAge, int maxAge) {
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getAge() >= minAge &&
+                    authors[i].getAge() <= maxAge) {
+
+                System.out.println(authors[i]);
+            }
+        }
+
+    }
 }
