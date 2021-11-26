@@ -61,4 +61,24 @@ public class BookStorage {
         }
         return null;
     }
+
+    public void delete(int index) {
+        if (index < 0 || index > size) {
+            System.err.println("invalid index");
+        }
+        for (int i = index + 1; i < size; i++) {
+            books[i - 1] = books[i];
+        }
+        size--;
+    }
+
+    public void deleteBook(String title) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].getTitle().equals(title)) {
+
+            }
+            delete(i);
+        }
+    }
+
 }

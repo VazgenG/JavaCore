@@ -54,4 +54,24 @@ public class AuthorStorage {
 
     }
 
+    public void delete(int index) {
+        if (index < 0 || index > size) {
+            System.err.println("invalid index");
+        }
+        for (int i = index + 1; i < size; i++) {
+            authors[i - 1] = authors[i];
+        }
+        size--;
+    }
+
+
+
+    public void deleteAuthor(String email) {
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getEmail().equals(email)) {
+
+            }
+            delete(i);
+        }
+    }
 }

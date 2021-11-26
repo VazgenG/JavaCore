@@ -20,6 +20,8 @@ public class AuthorBookTest {
     private static final String COUNT_BOOKS_BY_AUTHOR = "9";
     private static final String CHANGE_AUTHOR = "10";
     private static final String CHANGE_BOOK_AUTHOR = "11";
+    private static final String DELETE_BOOK = "12";
+    private static final String DELETE_AUTHOR = "13";
 
     public static void main(String[] args) {
 
@@ -40,6 +42,12 @@ public class AuthorBookTest {
                     break;
                 case ADD_BOOK:
                     addBook();
+                    break;
+                case DELETE_BOOK:
+                    deleteBook();
+                    break;
+                case DELETE_AUTHOR:
+                    deleteAuthor();
                     break;
                 case SEARCH_AUTHORS:
                     searchByName();
@@ -73,6 +81,20 @@ public class AuthorBookTest {
             }
 
         }
+    }
+
+    private static void deleteAuthor() {
+        System.out.println("please input author's email you want to delete");
+        String email = scanner.nextLine();
+        authorStorage.deleteAuthor(email);
+        System.out.println(" the author has been deleted ");
+    }
+
+    private static void deleteBook() {
+        System.out.println("please input book title you want to delete");
+        String title = scanner.nextLine();
+        bookStorage.deleteBook(title);
+        System.out.println(" the book has been deleted ");
     }
 
 
@@ -143,8 +165,10 @@ public class AuthorBookTest {
         System.out.println("please input " + PRINT_BOOKS + " for print books");
         System.out.println("please input " + SEARCH_BOOKS_BY_AUTHOR + " for search book by author");
         System.out.println("please input " + COUNT_BOOKS_BY_AUTHOR + " for count books by author");
-        System.out.println("please input " + CHANGE_AUTHOR + " change author");
-        System.out.println("please input " + CHANGE_BOOK_AUTHOR + " change book author" + "\u001B[0m");
+        System.out.println("please input " + CHANGE_AUTHOR + " for change author");
+        System.out.println("please input " + CHANGE_BOOK_AUTHOR + " for change book author");
+        System.out.println("please input " + DELETE_BOOK + " for delete book " );
+        System.out.println("please input " + DELETE_AUTHOR + " for delete book " + "\u001B[0m");
 
     }
 
@@ -214,8 +238,9 @@ public class AuthorBookTest {
         System.out.println("please input new author's email");
         String email = scanner.nextLine();
         Author author = authorStorage.getByEmail(email);
-         author.getEmail();
+        book.setAuthor(author);
 
 
     }
 }
+
