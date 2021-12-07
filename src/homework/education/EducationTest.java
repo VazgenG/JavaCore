@@ -1,5 +1,7 @@
 package homework.education;
 
+import homework.education.commands.EducatinCommands;
+import homework.education.commands.UsersCommands;
 import homework.education.model.Lesson;
 import homework.education.model.Student;
 import homework.education.storage.LessonStorage;

@@ -1,5 +1,4 @@
-package homework.education;
-
+package homework.education.commands;
 
 
 public interface EducatinCommands extends UsersCommands {
