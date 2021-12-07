@@ -37,19 +37,7 @@ public class EducationTest implements EducatinCommands {
                     register();
                     break;
             }
-//            User user = new User();
-//            if (userStorage.getByEmail(user.getEmail()) != User &&
-//            User.password != User ) {
-
-      /*      if (userStorage.getByEmail(admin.getEmail()) == null && userStorage.getByPassword(admin.getPassword()) == null) {
-                System.err.println("Invalid email or password, please try again");
-            } else {
-                typeAdmin();
-            }*/
-
         }
-
-
     }
 
     private static void typeAdmin() {
