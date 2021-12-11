@@ -121,7 +121,7 @@ public class EducationTest implements EducatinCommands {
                 && userStorage.getByPassword(password) == null) {
             System.err.println("Invalid email or password, please try again");
         } else if (user.getType().equals("user")) {
-            EducationTest.typeUser();
+            typeUser();
         } else if (user.getType().equals("admin")) {
             typeAdmin();
         }
