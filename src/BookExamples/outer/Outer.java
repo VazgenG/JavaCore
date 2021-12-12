@@ -1,4 +1,4 @@
-package BookExamples.Outer;
+package BookExamples.outer;
 
 public class Outer {
     int outer_x = 100;
