@@ -1,5 +1,4 @@
-package homework.author.exception;
-
+package core.homework.author.exception;
 
 public class BookNotFoundException extends Exception {
 
@@ -22,4 +21,3 @@ public class BookNotFoundException extends Exception {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }
-
